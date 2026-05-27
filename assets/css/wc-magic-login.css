@@ -52,8 +52,7 @@
 }
 
 /* Estado ativo do login mágico: esconde todos os elementos padrão do WooCommerce */
-.wc-ml-active form.login > *:not(.wc-ml-exclude),
-.wc-ml-active form.woocommerce-form-login > *:not(.wc-ml-exclude) {
+form.wc-ml-active > *:not(.wc-ml-exclude) {
     display: none !important;
 }
 
