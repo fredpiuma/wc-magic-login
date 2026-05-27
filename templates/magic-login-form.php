@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
 ?>
 
-<div class="wc-magic-login-wrapper" id="wc-magic-login-container">
+<div class="wc-magic-login-wrapper wc-ml-exclude" id="wc-magic-login-container">
     
     <!-- Fase 1: Formulário de Solicitação de Link/Código -->
     <form class="wc-magic-login-form-request" id="wc-ml-request-form" method="post">

@@ -51,13 +51,9 @@
     line-height: 18px;
 }
 
-/* Estado ativo do login mágico: esconde elementos padrões do WC */
-.wc-ml-active form.login > p:not(.wc-ml-exclude),
-.wc-ml-active form.login > span:not(.wc-ml-exclude),
-.wc-ml-active form.login > button:not(.wc-ml-submit-btn):not(.wc-ml-verify-btn),
-.wc-ml-active form.woocommerce-form-login > p:not(.wc-ml-exclude),
-.wc-ml-active form.woocommerce-form-login > span:not(.wc-ml-exclude),
-.wc-ml-active form.woocommerce-form-login > button:not(.wc-ml-submit-btn):not(.wc-ml-verify-btn) {
+/* Estado ativo do login mágico: esconde todos os elementos padrão do WooCommerce */
+.wc-ml-active form.login > *:not(.wc-ml-exclude),
+.wc-ml-active form.woocommerce-form-login > *:not(.wc-ml-exclude) {
     display: none !important;
 }
 

@@ -75,7 +75,7 @@ class WC_Magic_Login_Shortcode {
             return;
         }
         ?>
-        <div class="wc-ml-toggle-link-container">
+        <div class="wc-ml-toggle-link-container wc-ml-exclude">
             <a href="#" class="wc-ml-toggle-login-mode" data-target="magic">
                 <span class="dashicons dashicons-email"></span> <?php esc_html_e( 'Entrar com Link no E-mail (Acesso Rápido)', 'wc-magic-login' ); ?>
             </a>
@@ -120,7 +120,7 @@ class WC_Magic_Login_Shortcode {
 
         // Torna a variável de redirect visível dentro do escopo do template
         // através do input hidden dinâmico que o script JS irá ler ou enviar
-        echo '<input type="hidden" id="wc_ml_redirect_to_url" value="' . esc_attr( $redirect_url ) . '" />';
+        echo '<input type="hidden" id="wc_ml_redirect_to_url" class="wc-ml-exclude" value="' . esc_attr( $redirect_url ) . '" />';
 
         if ( $override_path ) {
             include $override_path;
