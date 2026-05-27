@@ -1,0 +1,272 @@
+/**
+ * Folha de Estilos Premium do WooCommerce Magic Login
+ *
+ * @package WCMagicLogin
+ */
+
+/* Container de alternância */
+.wc-ml-toggle-link-container {
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.wc-ml-toggle-login-mode {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff !important;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.wc-ml-toggle-login-mode:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(118, 75, 162, 0.35);
+    color: #ffffff !important;
+}
+
+.wc-ml-toggle-login-mode:active {
+    transform: translateY(0);
+}
+
+.wc-ml-toggle-login-mode .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+}
+
+/* Estado ativo do login mágico: esconde elementos padrões do WC */
+.wc-ml-active form.login > p:not(.wc-ml-exclude),
+.wc-ml-active form.login > span:not(.wc-ml-exclude),
+.wc-ml-active form.login > button:not(.wc-ml-submit-btn):not(.wc-ml-verify-btn),
+.wc-ml-active form.woocommerce-form-login > p:not(.wc-ml-exclude),
+.wc-ml-active form.woocommerce-form-login > span:not(.wc-ml-exclude),
+.wc-ml-active form.woocommerce-form-login > button:not(.wc-ml-submit-btn):not(.wc-ml-verify-btn) {
+    display: none !important;
+}
+
+/* Wrapper do Login Mágico */
+.wc-magic-login-wrapper {
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    animation: wcMlSlideDown 0.3s ease-out;
+}
+
+@keyframes wcMlSlideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Área de inputs OTP */
+.wc-ml-otp-digits-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.wc-ml-otp-digit {
+    width: 42px !important;
+    height: 52px !important;
+    padding: 0 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background-color: #f8fafc !important;
+    color: #1e293b !important;
+    transition: all 0.2s ease !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.01) !important;
+}
+
+.wc-ml-otp-digit:focus {
+    border-color: #667eea !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+    outline: none !important;
+}
+
+.wc-ml-otp-divider {
+    font-size: 24px;
+    color: #cbd5e1;
+    font-weight: 600;
+    margin: 0 2px;
+}
+
+/* Info do Código OTP */
+.wc-ml-verify-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wc-ml-icon-large {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #764ba2;
+    margin-bottom: 10px;
+}
+
+.wc-ml-verify-info h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    color: #1e293b;
+}
+
+.wc-ml-verify-text {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.wc-ml-verify-target-email {
+    font-weight: 600;
+    color: #334155;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Botões e Ações */
+.wc-ml-actions {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.wc-ml-submit-btn, .wc-ml-verify-btn {
+    width: 100%;
+    padding: 12px 20px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.2s ease !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wc-ml-toggle-wrapper {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.wc-ml-toggle-login-mode[data-target="standard"],
+.wc-ml-back-to-request {
+    font-size: 13px;
+    color: #64748b !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.wc-ml-toggle-login-mode[data-target="standard"]:hover,
+.wc-ml-back-to-request:hover {
+    color: #4f46e5 !important;
+}
+
+/* Spinner e Timer */
+.wc-ml-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: wcMlSpin 0.8s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes wcMlSpin {
+    to { transform: rotate(360deg); }
+}
+
+.wc-ml-timer-wrapper {
+    text-align: center;
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 15px;
+}
+
+.wc-ml-countdown {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Caixa de mensagens AJAX */
+.wc-ml-message-box {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    animation: wcMlFadeIn 0.3s ease-in-out;
+}
+
+.wc-ml-message-box.error {
+    background-color: #fef2f2;
+    border: 1px solid #fee2e2;
+    color: #991b1b;
+}
+
+.wc-ml-message-box.success {
+    background-color: #f0fdf4;
+    border: 1px solid #dcfce7;
+    color: #166534;
+}
+
+@keyframes wcMlFadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Descrições */
+.wc-ml-phone-field {
+    margin-top: 15px;
+}
+
+.wc-ml-phone-field .description {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Ajustes de responsividade mobile */
+@media (max-width: 480px) {
+    .wc-ml-otp-digits-container {
+        gap: 4px;
+    }
+    
+    .wc-ml-otp-digit {
+        width: 34px !important;
+        height: 44px !important;
+        font-size: 18px !important;
+    }
+}
