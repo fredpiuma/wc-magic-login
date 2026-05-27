@@ -11,6 +11,11 @@
     width: 100%;
 }
 
+/* Oculta o botão superior de alternância quando o modo mágico está ativo */
+.wc-ml-active .wc-ml-toggle-link-container {
+    display: none !important;
+}
+
 .wc-ml-toggle-login-mode {
     display: inline-flex;
     align-items: center;
@@ -56,8 +61,9 @@
     display: none !important;
 }
 
-/* Wrapper do Login Mágico */
+/* Wrapper do Login Mágico (Escondido por padrão) */
 .wc-magic-login-wrapper {
+    display: none;
     width: 100%;
     margin-top: 15px;
     padding: 20px;
@@ -172,7 +178,18 @@
     margin-top: 15px;
 }
 
-.wc-ml-toggle-login-mode[data-target="standard"],
+/* Botão de voltar para senha padrão: gradiente cinza escuro neutro com letras brancas legíveis */
+.wc-ml-toggle-login-mode[data-target="standard"] {
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(30, 41, 59, 0.2);
+}
+
+.wc-ml-toggle-login-mode[data-target="standard"]:hover {
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(30, 41, 59, 0.35);
+}
+
 .wc-ml-back-to-request {
     font-size: 13px;
     color: #64748b !important;
@@ -184,10 +201,10 @@
     gap: 4px;
 }
 
-.wc-ml-toggle-login-mode[data-target="standard"]:hover,
 .wc-ml-back-to-request:hover {
     color: #4f46e5 !important;
 }
+
 
 /* Spinner e Timer */
 .wc-ml-spinner {
