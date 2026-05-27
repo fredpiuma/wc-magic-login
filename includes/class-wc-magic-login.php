@@ -49,8 +49,8 @@ class WC_Magic_Login {
         // Inicializa o gerenciador de tokens
         WC_Magic_Login_Token_Manager::get_instance();
 
-        // Inicializa as configurações se estiver no painel administrativo
-        if ( is_admin() ) {
+        // Inicializa as configurações se estiver no painel administrativo e não for requisição AJAX
+        if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
             WC_Magic_Login_Settings::get_instance();
         }
 
