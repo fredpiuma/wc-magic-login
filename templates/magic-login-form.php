@@ -15,7 +15,7 @@ $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
 <div class="wc-magic-login-wrapper wc-ml-exclude" id="wc-magic-login-container">
     
     <!-- Fase 1: Formulário de Solicitação de Link/Código -->
-    <form class="wc-magic-login-form-request" id="wc-ml-request-form" method="post">
+    <div class="wc-magic-login-form-request" id="wc-ml-request-form">
         
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <label for="wc_ml_email"><?php esc_html_e( 'E-mail cadastrado', 'wc-magic-login' ); ?>&nbsp;<span class="required">*</span></label>
@@ -31,7 +31,7 @@ $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
         <?php endif; ?>
 
         <div class="wc-ml-actions">
-            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit wc-ml-submit-btn" name="wc_ml_submit" value="send">
+            <button type="button" class="woocommerce-button button woocommerce-form-login__submit wc-ml-submit-btn" name="wc_ml_submit" value="send">
                 <?php esc_html_e( 'Enviar Link de Acesso', 'wc-magic-login' ); ?>
             </button>
         </div>
@@ -43,10 +43,10 @@ $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
         </div>
         
         <div class="wc-ml-message-box" style="display: none;"></div>
-    </form>
+    </div>
 
     <!-- Fase 2: Formulário de Inserção do Código OTP de 6 Dígitos -->
-    <form class="wc-magic-login-form-verify" id="wc-ml-verify-form" method="post" style="display: none;">
+    <div class="wc-magic-login-form-verify" id="wc-ml-verify-form" style="display: none;">
         
         <div class="wc-ml-verify-info">
             <span class="dashicons dashicons-email-alt wc-ml-icon-large"></span>
@@ -80,7 +80,7 @@ $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
         </div>
 
         <div class="wc-ml-actions">
-            <button type="submit" class="woocommerce-button button woocommerce-form-login__submit wc-ml-verify-btn" name="wc_ml_verify" value="verify">
+            <button type="button" class="woocommerce-button button woocommerce-form-login__submit wc-ml-verify-btn" name="wc_ml_verify" value="verify">
                 <?php esc_html_e( 'Verificar Código', 'wc-magic-login' ); ?>
             </button>
         </div>
@@ -98,5 +98,5 @@ $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
         </div>
 
         <div class="wc-ml-message-box" style="display: none;"></div>
-    </form>
+    </div>
 </div>

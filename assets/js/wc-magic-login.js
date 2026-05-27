@@ -92,11 +92,11 @@
         });
 
         // 3. SUBMISSÃO DO PEDIDO DE LINK (FASE 1)
-        $(document).on('submit', '#wc-ml-request-form', function(e) {
+        $(document).on('click', '.wc-ml-submit-btn', function(e) {
             e.preventDefault();
-            var $form = $(this);
+            var $btn = $(this);
+            var $form = $btn.closest('#wc-ml-request-form');
             var $wrapper = $form.closest('.wc-magic-login-wrapper');
-            var $btn = $form.find('.wc-ml-submit-btn');
             var $msgBox = $form.find('.wc-ml-message-box');
 
             var emailVal = $form.find('#wc_ml_email').val().trim();
@@ -165,11 +165,12 @@
         });
 
         // 4. SUBMISSÃO E VALIDAÇÃO DO CÓDIGO OTP (FASE 2)
-        $(document).on('submit', '#wc-ml-verify-form', function(e) {
+        $(document).on('click', '.wc-ml-verify-btn', function(e) {
             e.preventDefault();
-            var $form = $(this);
+            var $btn = $(this);
+            var $form = $btn.closest('#wc-ml-verify-form');
             var $wrapper = $form.closest('.wc-magic-login-wrapper');
-            var $btn = $form.find('.wc-ml-verify-btn');
+            var $btnVerify = $form.find('.wc-ml-verify-btn');
             var $msgBox = $form.find('.wc-ml-message-box');
 
             updateOTPValue($form);
@@ -182,7 +183,7 @@
             }
 
             // Desativa botões e mostra loader
-            $btn.prop('disabled', true).html('<span class="wc-ml-spinner"></span> ' + wc_magic_login_params.i18n.verifying);
+            $btnVerify.prop('disabled', true).html('<span class="wc-ml-spinner"></span> ' + wc_magic_login_params.i18n.verifying);
             $msgBox.fadeOut().removeClass('error success').text('');
 
             $.ajax({
@@ -222,7 +223,7 @@
                     $msgBox.addClass('error').text('Erro ao validar código. Tente novamente.').fadeIn();
                 },
                 complete: function() {
-                    $btn.prop('disabled', false).html(wc_magic_login_params.i18n.verify_code);
+                    $btnVerify.prop('disabled', false).html(wc_magic_login_params.i18n.verify_code);
                 }
             });
         });
@@ -251,7 +252,7 @@
             }
 
             // Atualiza o input oculto de código a cada alteração
-            updateOTPValue($this.closest('form'));
+            updateOTPValue($this.closest('#wc-ml-verify-form'));
         });
 
         // Foco automático do campo subsequente em caso de clique
@@ -284,10 +285,27 @@
                     $(this).val(pastedData.charAt(index));
                 });
                 
-                // Concatena e submete imediatamente
-                var $form = $this.closest('form');
-                updateOTPValue($form);
-                $form.submit();
+                // Concatena e aciona o botão de verificação
+                var $wrapper = $this.closest('.wc-magic-login-wrapper');
+                updateOTPValue($wrapper);
+                $wrapper.find('.wc-ml-verify-btn').click();
+            }
+        });
+
+        // 7. PREVENÇÃO DE SUBMISSÃO DA TELA ORIGINAL COM ENTER E MAPEAMENTO DE BOTÕES
+        $(document).on('keydown', '#wc_ml_email, #wc_ml_phone', function(e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                e.preventDefault();
+                var $wrapper = $(this).closest('.wc-magic-login-wrapper');
+                $wrapper.find('.wc-ml-submit-btn').click();
+            }
+        });
+
+        $(document).on('keydown', '.wc-ml-otp-digit', function(e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                e.preventDefault();
+                var $wrapper = $(this).closest('.wc-magic-login-wrapper');
+                $wrapper.find('.wc-ml-verify-btn').click();
             }
         });
     });
