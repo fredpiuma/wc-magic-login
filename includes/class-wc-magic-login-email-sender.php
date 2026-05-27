@@ -35,23 +35,25 @@ class WC_Magic_Login_Email_Sender {
         $base_color = get_option( 'woocommerce_email_base_color', '#96588a' );
         $text_color = wc_light_or_dark( $base_color, '#ffffff', '#111111' );
 
-        // Constrói o corpo do e-mail em HTML
+        // Constrói o corpo do e-mail em HTML (totalmente centralizado para layout limpo)
         $email_content = '
-        <p>' . sprintf( esc_html__( 'Olá, %s!', 'wc-magic-login' ), esc_html( $name ) ) . '</p>
-        <p>' . esc_html__( 'Você solicitou o acesso rápido à sua conta. Clique no botão abaixo para fazer login instantaneamente sem precisar digitar sua senha:', 'wc-magic-login' ) . '</p>
-        
-        <div style="text-align: center; margin: 30px 0;">
-            <a href="' . esc_url( $login_url ) . '" style="background-color: ' . esc_attr( $base_color ) . '; color: ' . esc_attr( $text_color ) . '; padding: 14px 28px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">' . esc_html__( 'Fazer Login Instantâneo', 'wc-magic-login' ) . '</a>
-        </div>
-        
-        <div style="text-align: center; background-color: #f9f9f9; border: 1px dashed #dcdcdc; padding: 20px; margin: 25px 0; border-radius: 6px;">
-            <p style="margin: 0 0 10px 0; font-size: 14px; color: #666666;">' . esc_html__( 'Ou digite este código de 6 dígitos no site:', 'wc-magic-login' ) . '</p>
-            <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #333333; font-family: monospace; border: 1px solid #e2e2e2; background-color: #ffffff; padding: 5px 15px; display: inline-block; border-radius: 4px;">' . esc_html( $otp_code ) . '</span>
-        </div>
-        
-        <p style="font-size: 12px; color: #888888; font-style: italic; text-align: center; margin-top: 30px; border-top: 1px solid #eeeeee; padding-top: 15px;">' . 
-        sprintf( esc_html__( 'Atenção: Por motivos de segurança, este link e código de acesso expiram em %d minutos e só podem ser utilizados uma única vez.', 'wc-magic-login' ), esc_html( $expiration_minutes ) ) . '
-        </p>';
+        <div style="text-align: center; width: 100%;">
+            <p style="text-align: center; font-size: 16px; margin: 0 0 15px 0;">' . sprintf( esc_html__( 'Olá, %s!', 'wc-magic-login' ), esc_html( $name ) ) . '</p>
+            <p style="text-align: center; font-size: 14px; line-height: 1.6; margin: 0 0 25px 0; color: #555555;">' . esc_html__( 'Você solicitou o acesso rápido à sua conta. Clique no botão abaixo para fazer login instantaneamente sem precisar digitar sua senha:', 'wc-magic-login' ) . '</p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="' . esc_url( $login_url ) . '" style="background-color: ' . esc_attr( $base_color ) . '; color: #ffffff !important; padding: 14px 28px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">' . esc_html__( 'Fazer Login Instantâneo', 'wc-magic-login' ) . '</a>
+            </div>
+            
+            <div style="text-align: center; background-color: #f9f9f9; border: 1px dashed #dcdcdc; padding: 20px; margin: 25px 0; border-radius: 6px;">
+                <p style="margin: 0 0 10px 0; font-size: 14px; color: #666666; text-align: center;">' . esc_html__( 'Ou digite este código de 6 dígitos no site:', 'wc-magic-login' ) . '</p>
+                <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #333333; font-family: monospace; border: 1px solid #e2e2e2; background-color: #ffffff; padding: 5px 15px; display: inline-block; border-radius: 4px;">' . esc_html( $otp_code ) . '</span>
+            </div>
+            
+            <p style="font-size: 12px; color: #888888; font-style: italic; text-align: center; margin-top: 30px; border-top: 1px solid #eeeeee; padding-top: 15px; line-height: 1.5;">' . 
+            sprintf( esc_html__( 'Atenção: Por motivos de segurança, este link e código de acesso expiram em %d minutos e só podem ser utilizados uma única vez.', 'wc-magic-login' ), esc_html( $expiration_minutes ) ) . '
+            </p>
+        </div>';
 
         // Inicializa o mailer do WooCommerce para envelopar no template padrão premium
         if ( function_exists( 'WC' ) && isset( WC()->mailer ) ) {
