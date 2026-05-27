@@ -16,6 +16,7 @@ Fully compatible with standard WooCommerce login forms, My Account views, and th
 - **Sleek, Responsive UI**: Modern interactive interface with smooth transitions, caret navigation for individual OTP boxes, clipboard auto-fill, and live countdown timer.
 - **Dynamic Brand Matching**: Automatically inherits WooCommerce settings such as your store's logo, email footer, and brand primary color in the sent email.
 - **Fluid Checkout Compatibility**: Leverages delegated jQuery selectors to remain perfectly interactive even after multi-step checkout AJAX updates.
+- **Notification-Optimized Email Subject**: Places the 6-digit OTP code at the very beginning of the email subject line (e.g., `123456 is your login code`), letting users view and copy it directly from their mobile notifications screen.
 - **Theme Overrides**: Fully overridable HTML template file.
 
 ---
@@ -80,6 +81,7 @@ Totalmente compatível com formulários de login do WooCommerce padrão, página
 - **Visual Responsivo Premium**: Interface interativa moderna com transições fluidas, foco automático em caixas OTP individuais, colagem inteligente de código e timer regressivo em tempo real.
 - **Estilo Coerente com sua Loja**: Herda automaticamente o logotipo, rodapé e cor base configurados na aba de e-mails do WooCommerce.
 - **Compatibilidade com Fluid Checkout**: Utiliza seletores jQuery delegados para permanecer interativo mesmo após atualizações via AJAX no checkout.
+- **Assunto Otimizado para Notificações**: Inclui o código OTP de 6 dígitos no início da linha de assunto do e-mail (ex: `123456 é seu código para login`), permitindo visualizar e copiar o código diretamente pela notificação do celular.
 - **Sobrescrita por Temas**: Template HTML modular e customizável.
 
 ---

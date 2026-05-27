@@ -28,8 +28,8 @@ class WC_Magic_Login_Email_Sender {
         $name = ! empty( $user->first_name ) ? $user->first_name : $user->display_name;
         $expiration_minutes = round( ( $expiration_time - time() ) / 60 );
 
-        // Assunto do e-mail
-        $subject = sprintf( __( 'Seu código e link de acesso rápido - %s', 'wc-magic-login' ), get_bloginfo( 'name' ) );
+        // Assunto do e-mail (otimizado para leitura imediata na notificação do celular!)
+        $subject = sprintf( __( '%s é seu código para login em %s', 'wc-magic-login' ), $otp_code, get_bloginfo( 'name' ) );
 
         // Recupera a cor base de e-mails configurada no WooCommerce para aplicar ao botão
         $base_color = get_option( 'woocommerce_email_base_color', '#96588a' );
