@@ -100,7 +100,6 @@
             var $msgBox = $form.find('.wc-ml-message-box');
 
             var emailVal = $form.find('#wc_ml_email').val().trim();
-            var phoneVal = $form.find('#wc_ml_phone').length ? $form.find('#wc_ml_phone').val().trim() : '';
             var redirectTo = $('#wc_ml_redirect_to_url').val() || '';
 
             // Validações básicas de frontend
@@ -120,7 +119,6 @@
                     action: 'wc_magic_login_request',
                     nonce: wc_magic_login_params.nonce,
                     email: emailVal,
-                    phone: phoneVal,
                     redirect_to: redirectTo
                 },
                 success: function(response) {
@@ -293,7 +291,7 @@
         });
 
         // 7. PREVENÇÃO DE SUBMISSÃO DA TELA ORIGINAL COM ENTER E MAPEAMENTO DE BOTÕES
-        $(document).on('keydown', '#wc_ml_email, #wc_ml_phone', function(e) {
+        $(document).on('keydown', '#wc_ml_email', function(e) {
             if (e.key === 'Enter' || e.keyCode === 13) {
                 e.preventDefault();
                 var $wrapper = $(this).closest('.wc-magic-login-wrapper');

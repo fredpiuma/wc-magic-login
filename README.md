@@ -42,7 +42,7 @@ Navigate to **WooCommerce > Settings > Magic Login** (WooCommerce > Configuraç�
   - **Webhook URL**: Complete API endpoint.
   - **Custom Headers**: Enter custom authorization headers (one per line, e.g., `apikey: your-token` or `Authorization: Bearer token`).
   - **Payload Body**: Enter a raw JSON format. You can map the following dynamic placeholders:
-    - `{phone}`: Customer's billing phone (automatically formatted for WhatsApp API compatibilities).
+    - `{phone}`: Customer's billing phone (automatically formatted for WhatsApp API compatibilities. For absolute security, this phone is retrieved strictly from the customer's verified user profile in the WordPress database and cannot be modified or input during the login process, preventing token hijacking).
     - `{link}`: Absolute secure magic login link.
     - `{code}`: The 6-digit numeric OTP code.
     - `{name}`: Customer's display name or first name.
@@ -107,7 +107,7 @@ Acesse **WooCommerce > Configurações > Login Mágico** no seu painel administr
   - **URL do Webhook**: Endpoint de envio da API externa.
   - **Cabeçalhos Personalizados**: Insira chaves de autenticação (uma por linha, ex: `apikey: token_seguro`).
   - **Corpo do Payload**: Escreva o payload JSON da sua API. Utilize os seguintes placeholders dinâmicos:
-    - `{phone}`: Celular do cliente (com formatação de DDI automática).
+    - `{phone}`: Celular do cliente (com formatação de DDI automática. Para segurança absoluta, este telefone é consultado estritamente a partir do perfil do usuário verificado no banco de dados e não pode ser manipulado ou digitado durante o processo de login, eliminando qualquer risco de sequestro de token).
     - `{link}`: Link direto para login rápido de clique único.
     - `{code}`: Código numérico de 6 dígitos.
     - `{name}`: Primeiro nome ou nome de exibição do usuário.

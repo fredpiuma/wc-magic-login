@@ -22,13 +22,7 @@ $webhook_active = ( 'yes' === get_option( 'wc_ml_webhook_enabled', 'no' ) );
             <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="wc_ml_email" id="wc_ml_email" autocomplete="email" placeholder="<?php esc_attr_e( 'seu@email.com', 'wc-magic-login' ); ?>" required />
         </p>
 
-        <?php if ( $webhook_active ) : ?>
-            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide wc-ml-phone-field">
-                <label for="wc_ml_phone"><?php esc_html_e( 'Celular / WhatsApp (Opcional)', 'wc-magic-login' ); ?></label>
-                <input type="tel" class="woocommerce-Input woocommerce-Input--text input-text" name="wc_ml_phone" id="wc_ml_phone" autocomplete="tel" placeholder="<?php esc_attr_e( '(11) 99999-9999', 'wc-magic-login' ); ?>" />
-                <span class="description"><?php esc_html_e( 'Informe seu número para também receber o código de acesso rápido via WhatsApp.', 'wc-magic-login' ); ?></span>
-            </p>
-        <?php endif; ?>
+
 
         <div class="wc-ml-actions">
             <button type="button" class="woocommerce-button button woocommerce-form-login__submit wc-ml-submit-btn" name="wc_ml_submit" value="send">

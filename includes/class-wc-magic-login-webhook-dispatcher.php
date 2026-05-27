@@ -9,17 +9,16 @@ defined( 'ABSPATH' ) || exit;
 
 class WC_Magic_Login_Webhook_Dispatcher {
 
-    /**
+     /**
      * Envia os dados de login para o Webhook configurado.
      *
      * @param WP_User $user               Objeto do usuário.
      * @param string  $plain_token        Token puro de login.
      * @param string  $otp_code           Código OTP de 6 dígitos.
      * @param int     $expiration_time    Timestamp de expiração.
-     * @param string  $submitted_phone    Telefone enviado na requisição AJAX (opcional).
      * @return bool|WP_Error Retorna true se enviado (ou agendado), ou WP_Error caso erro básico ocorra.
      */
-    public static function dispatch( $user, $plain_token, $otp_code, $expiration_time, $submitted_phone = '' ) {
+    public static function dispatch( $user, $plain_token, $otp_code, $expiration_time ) {
         // Verifica se a integração está ativa nas configurações
         $enabled = get_option( 'wc_ml_webhook_enabled', 'no' );
         if ( 'yes' !== $enabled ) {
@@ -31,12 +30,12 @@ class WC_Magic_Login_Webhook_Dispatcher {
             return new WP_Error( 'missing_url', __( 'URL do Webhook não configurada.', 'wc-magic-login' ) );
         }
 
-        // Recupera o telefone: prioriza o enviado no formulário AJAX, depois o salvo no meta do usuário
-        $raw_phone = ! empty( $submitted_phone ) ? $submitted_phone : get_user_meta( $user->ID, 'billing_phone', true );
+        // Recupera o telefone estritamente do banco de dados (meta do usuário cadastrado para segurança total)
+        $raw_phone = get_user_meta( $user->ID, 'billing_phone', true );
         $formatted_phone = self::format_phone( $raw_phone );
 
         if ( empty( $formatted_phone ) ) {
-            return new WP_Error( 'missing_phone', __( 'Telefone do cliente não encontrado.', 'wc-magic-login' ) );
+            return new WP_Error( 'missing_phone', __( 'Telefone do cliente não cadastrado na conta.', 'wc-magic-login' ) );
         }
 
         // Constrói o link de login

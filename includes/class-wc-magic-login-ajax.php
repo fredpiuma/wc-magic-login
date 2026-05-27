@@ -49,7 +49,6 @@ class WC_Magic_Login_Ajax {
         check_ajax_referer( 'wc_magic_login_nonce', 'nonce' );
 
         $email_input = isset( $_POST['email'] ) ? sanitize_text_field( $_POST['email'] ) : '';
-        $phone_input = isset( $_POST['phone'] ) ? sanitize_text_field( $_POST['phone'] ) : '';
         $redirect_to = isset( $_POST['redirect_to'] ) ? esc_url_raw( $_POST['redirect_to'] ) : '';
 
         if ( empty( $email_input ) ) {
@@ -87,8 +86,7 @@ class WC_Magic_Login_Ajax {
                 $user,
                 $tokens['plain_token'],
                 $tokens['otp_code'],
-                $tokens['expires'],
-                $phone_input
+                $tokens['expires']
             );
             $webhook_triggered = ! is_wp_error( $webhook_result ) && $webhook_result;
         }
