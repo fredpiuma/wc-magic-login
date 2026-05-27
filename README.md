@@ -119,3 +119,12 @@ Para alterar o estilo visual ou marcação do formulário no seu tema:
 2. Copie o arquivo `/templates/magic-login-form.php` deste plugin.
 3. Cole-o no caminho `seu-tema/woocommerce/magic-login-form.php`.
 4. Edite o código HTML conforme preferir.
+
+---
+
+### 📫 Direct Contact / Contato Direto
+
+[![E-mail](https://img.shields.io/badge/E--mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato@fredericodecastro.com.br)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/551114636944)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/fredericomdecastro)
+
