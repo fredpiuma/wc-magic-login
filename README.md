@@ -1,90 +1,5 @@
 # WooCommerce Magic Login
 
-A premium WooCommerce plugin that allows customers to log in securely and instantly using a **Magic Link** or a **6-Digit OTP (One-Time Password) Code** sent via Email or SMS/WhatsApp via an external webhook (such as EvolutionAPI or BaileysAPI).
-
-Fully compatible with standard WooCommerce login forms, My Account views, and the popular **Fluid Checkout** multi-step design.
-
----
-
-## Key Features
-
-- **Dual-Verification System**: Customers receive both a clickable secure login link and a 6-digit verification code (perfect for copy-pasting on mobile).
-- **5-Minute strict expiration**: Tokens and codes are stored in secure temporary WordPress Transients, naturally self-expiring and automatically deleting after consumption (single-use token protection).
-- **Brute-Force Shield**: Limits incorrect OTP code attempts to 5 per session, clearing all active tokens if exceeded.
-- **Webhook Dispatcher**: Integrated settings page to map external APIs (like EvolutionAPI or BaileysAPI) to send SMS/WhatsApp notifications using the customer's billing phone number.
-- **Non-blocking Webhook Calls**: Uses asynchronous HTTP POST requests so your customer's checkout is never delayed waiting for external messaging APIs to respond.
-- **Sleek, Responsive UI**: Modern interactive interface with smooth transitions, caret navigation for individual OTP boxes, clipboard auto-fill, and live countdown timer.
-- **Dynamic Brand Matching**: Automatically inherits WooCommerce settings such as your store's logo, email footer, and brand primary color in the sent email.
-- **Fluid Checkout Compatibility**: Leverages delegated jQuery selectors to remain perfectly interactive even after multi-step checkout AJAX updates.
-- **Notification-Optimized Email Subject**: Places the 6-digit OTP code at the very beginning of the email subject line (e.g., `123456 is your login code`), letting users view and copy it directly from their mobile notifications screen.
-- **Theme Overrides**: Fully overridable HTML template file.
-
----
-
-## Installation
-
-**[Download the plugin (latest release zip)](https://github.com/fredpiuma/wc-magic-login/releases/latest/download/wc-magic-login.zip)**
-
-This zip contains only the plugin files. Do not install GitHub's "Source code (zip)": it includes development files and the folder gets the wrong name.
-
-### From the WordPress dashboard
-
-1. Download the zip from the link above.
-2. Go to **Plugins → Add New → Upload Plugin**, choose the file and click **Install Now**.
-3. Activate **WooCommerce Magic Login**.
-
-To update, upload the new version's zip the same way and confirm replacing the installed version.
-
-### With WP-CLI
-
-```bash
-wp plugin install https://github.com/fredpiuma/wc-magic-login/releases/latest/download/wc-magic-login.zip --force --activate
-```
-
-The same command installs and updates: `--force` replaces the installed version with the latest one, since the plugin has no automatic updates from the dashboard.
-
-Requires WordPress 5.6+, PHP 7.4+ and WooCommerce 5.0+.
-
-See the [CHANGELOG](CHANGELOG.md) for release notes.
-
----
-
-## Configuration
-
-Navigate to **WooCommerce > Settings > Magic Login** (WooCommerce > Configurações > Login Mágico) to access the settings panel:
-
-- **General Settings**:
-  - **Enable Plugin**: Turn magic links on/off globally.
-  - **Expiration Time**: Set the time limit in minutes (default is 5 minutes).
-
-- **Webhook Settings (EvolutionAPI / BaileysAPI / SMS gateways)**:
-  - **Enable Webhook**: Enable to send messages via your external messaging server.
-  - **Webhook URL**: Complete API endpoint.
-  - **Custom Headers**: Enter custom authorization headers (one per line, e.g., `apikey: your-token` or `Authorization: Bearer token`).
-  - **Payload Body**: Enter a raw JSON format. You can map the following dynamic placeholders:
-    - `{phone}`: Customer's billing phone (automatically formatted for WhatsApp API compatibilities. For absolute security, this phone is retrieved strictly from the customer's verified user profile in the WordPress database and cannot be modified or input during the login process, preventing token hijacking).
-    - `{link}`: Absolute secure magic login link.
-    - `{code}`: The 6-digit numeric OTP code.
-    - `{name}`: Customer's display name or first name.
-
----
-
-## Customizing the Interface Template
-
-To customize the visual style or markup of the Magic Login form in your theme:
-1. Create a directory named `woocommerce` inside your child theme directory.
-2. Copy `/templates/magic-login-form.php` from this plugin.
-3. Paste it in `your-theme/woocommerce/magic-login-form.php`.
-4. Customize the HTML as desired.
-
----
-
-<br>
-
----
-
-# WooCommerce Magic Login (Português)
-
 Um plugin premium para WooCommerce que permite aos clientes fazer login com segurança e de forma instantânea usando um **Link Mágico** ou um **Código OTP de 6 dígitos** enviado por E-mail ou por WhatsApp/SMS através de um webhook externo (como EvolutionAPI ou BaileysAPI).
 
 Totalmente compatível com formulários de login do WooCommerce padrão, páginas de Minha Conta e o popular fluxo de checkout **Fluid Checkout**.
@@ -164,9 +79,14 @@ Para alterar o estilo visual ou marcação do formulário no seu tema:
 
 ---
 
-### 📫 Direct Contact / Contato Direto
+### Precisa de uma solução sob medida para a sua loja?
 
+Desenvolvo plugins, integrações e melhorias para WordPress e WooCommerce, do checkout ao pós-venda. Me conte o que você precisa e vamos encontrar o melhor caminho para o seu projeto.
+
+**Frederico de Castro** · Senior Web Developer & Software Architect
+
+[![Fale comigo no WhatsApp](https://img.shields.io/badge/Fale_comigo_no_WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5511914636944)
 [![E-mail](https://img.shields.io/badge/E--mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato@fredericodecastro.com.br)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/551114636944)
+[![Site](https://img.shields.io/badge/Site-1F2937?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.fredericodecastro.com.br/links/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/fredericodecastro/)
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/fredericomdecastro)
-
