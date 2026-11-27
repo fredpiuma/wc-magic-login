@@ -23,9 +23,29 @@ Fully compatible with standard WooCommerce login forms, My Account views, and th
 
 ## Installation
 
-1. Copy the plugin directory `wc-magic-login` to your WordPress installation directory `/wp-content/plugins/`.
-2. Navigate to **Plugins** in the WordPress admin panel.
-3. Click **Activate** on **WooCommerce Magic Login**.
+**[Download the plugin (latest release zip)](https://github.com/fredpiuma/wc-magic-login/releases/latest/download/wc-magic-login.zip)**
+
+This zip contains only the plugin files. Do not install GitHub's "Source code (zip)": it includes development files and the folder gets the wrong name.
+
+### From the WordPress dashboard
+
+1. Download the zip from the link above.
+2. Go to **Plugins → Add New → Upload Plugin**, choose the file and click **Install Now**.
+3. Activate **WooCommerce Magic Login**.
+
+To update, upload the new version's zip the same way and confirm replacing the installed version.
+
+### With WP-CLI
+
+```bash
+wp plugin install https://github.com/fredpiuma/wc-magic-login/releases/latest/download/wc-magic-login.zip --force --activate
+```
+
+The same command installs and updates: `--force` replaces the installed version with the latest one, since the plugin has no automatic updates from the dashboard.
+
+Requires WordPress 5.6+, PHP 7.4+ and WooCommerce 5.0+.
+
+See the [CHANGELOG](CHANGELOG.md) for release notes.
 
 ---
 
@@ -88,9 +108,29 @@ Totalmente compatível com formulários de login do WooCommerce padrão, página
 
 ## Instalação
 
-1. Copie o diretório do plugin `wc-magic-login` para a pasta de plugins da sua instalação do WordPress `/wp-content/plugins/`.
-2. Vá para **Plugins** no painel administrativo do WordPress.
-3. Clique em **Ativar** no plugin **WooCommerce Magic Login**.
+**[Baixar o plugin (zip da última versão)](https://github.com/fredpiuma/wc-magic-login/releases/latest/download/wc-magic-login.zip)**
+
+Esse zip tem só os arquivos do plugin. Não use o "Source code (zip)" do GitHub para instalar: ele traz arquivos de desenvolvimento e a pasta fica com o nome errado.
+
+### Pelo painel do WordPress
+
+1. Baixe o zip pelo link acima.
+2. Em **Plugins → Adicionar novo → Enviar plugin**, escolha o arquivo e clique em **Instalar agora**.
+3. Ative o **WooCommerce Magic Login**.
+
+Para atualizar, envie o zip da versão nova da mesma forma e confirme a substituição da versão instalada.
+
+### Pelo WP-CLI
+
+```bash
+wp plugin install https://github.com/fredpiuma/wc-magic-login/releases/latest/download/wc-magic-login.zip --force --activate
+```
+
+O mesmo comando instala e atualiza: o `--force` substitui a versão instalada pela última, já que o plugin não tem atualização automática pelo painel.
+
+Requer WordPress 5.6+, PHP 7.4+ e WooCommerce 5.0+.
+
+Veja as notas de cada versão no [CHANGELOG](CHANGELOG.md).
 
 ---
 
