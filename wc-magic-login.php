@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Magic Login
  * Plugin URI: https://github.com/fredpiuma/wc-magic-login
  * Description: Permite que os usuários façam login com um link mágico enviado por e-mail ou código de 6 dígitos (OTP) via e-mail e webhook (EvolutionAPI/BaileysAPI). Compatível com Fluid Checkout.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Frederico de Castro
  * Author URI: https://www.fredericodecastro.com.br/links
  * Text Domain: wc-magic-login
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define as constantes globais do plugin.
-define( 'WC_ML_VERSION', '1.0.0' );
+define( 'WC_ML_VERSION', '1.0.1' );
 define( 'WC_ML_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WC_ML_URL', plugin_dir_url( __FILE__ ) );
 define( 'WC_ML_BASENAME', plugin_basename( __FILE__ ) );

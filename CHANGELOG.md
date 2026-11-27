@@ -2,6 +2,13 @@
 
 Todas as mudanças relevantes do plugin ficam registradas aqui.
 
+## [1.0.1] - 2026-11-27
+
+### Corrigido
+
+- O formulário de login mágico não aparece mais como um card dentro do card do formulário de login. Agora ele usa o visual do próprio formulário do WooCommerce/tema.
+- O texto dos botões de enviar e de verificar o código fica centralizado na vertical, mesmo em temas que forçam `display: inline-block`, `line-height` ou altura fixa no `.button`.
+
 ## [1.0.0] - 2026-11-27
 
 Primeira versão publicada.

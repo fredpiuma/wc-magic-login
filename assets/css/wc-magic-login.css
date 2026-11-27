@@ -56,18 +56,17 @@ form.wc-ml-active > *:not(.wc-ml-exclude) {
     display: none !important;
 }
 
-/* Wrapper do Login Mágico (Escondido por padrão) */
+/* Wrapper do Login Mágico (Escondido por padrão)
+   Sem visual de card: o form.login do WooCommerce/tema já faz esse papel */
 .wc-magic-login-wrapper {
     display: none;
     width: 100%;
-    margin-top: 15px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-top: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
     animation: wcMlSlideDown 0.3s ease-out;
 }
 
@@ -154,8 +153,15 @@ form.wc-ml-active > *:not(.wc-ml-exclude) {
     margin-bottom: 15px;
 }
 
-.wc-ml-submit-btn, .wc-ml-verify-btn {
+.wc-ml-submit-btn,
+.wc-ml-verify-btn {
     width: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: auto !important;
+    min-height: 46px;
+    line-height: 1.3 !important;
     padding: 12px 20px !important;
     font-size: 15px !important;
     font-weight: 600 !important;
@@ -163,9 +169,6 @@ form.wc-ml-active > *:not(.wc-ml-exclude) {
     text-transform: none !important;
     letter-spacing: 0.5px !important;
     transition: all 0.2s ease !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .wc-ml-toggle-wrapper {
